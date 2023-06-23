@@ -10,10 +10,10 @@ pipeline {
           sh 'terraform init'
 
           
-          sh 'terraform plan -out=tfplan'
+          sh 'terraform plan '
 
           
-          sh 'terraform apply --auto-approve tfplan'
+          sh 'terraform apply --auto-approve '
         }
       }
     }
