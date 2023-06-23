@@ -13,7 +13,7 @@ stage('Terraform Init') {
 stage('Terraform Apply') {
   steps {
     dir('/var/lib/jenkins/workspace/jenkins_terraform') {
-      sh 'terraform apply -auto-approve'
+      sh 'terraform apply --auto-approve'
     }
   }
 }
