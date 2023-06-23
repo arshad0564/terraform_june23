@@ -5,7 +5,7 @@ pipeline {
     stage('Terraform automation') {
       steps {
         
-        dir('jenkins_terraform/terraform_resource/init.tf') {
+        dir('jenkins_terraform/terraform_resource/inst.tf') {
           
           sh 'terraform init'
 
