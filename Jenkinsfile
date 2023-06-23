@@ -4,14 +4,19 @@ pipeline {
     stages {
 stage('Terraform Init') {
   steps {
-    sh 'terraform init -chdir=/var/lib/jenkins/workspace/jenkins_terraform'
+    dir('/var/lib/jenkins/workspace/jenkins_terraform') {
+      sh 'terraform init'
+    }
   }
 }
 
 stage('Terraform Apply') {
   steps {
-    sh 'terraform apply -auto-approve -chdir=/var/lib/jenkins/workspace/jenkins_terraform'
+    dir('/var/lib/jenkins/workspace/jenkins_terraform') {
+      sh 'terraform apply -auto-approve'
+    }
   }
 }
+
     }
 }
