@@ -2,18 +2,16 @@ pipeline {
     agent any
 
     stages {
-        stage('Terraform init') {
-            steps {
+stage('Terraform Init') {
+  steps {
+    sh 'terraform init -chdir=/var/lib/jenkins/workspace/jenkins_terraform'
+  }
+}
 
-                 sh 'terraform init /var/lib/jenkins/workspace/jenkins_terraform'
-        }
-        }
-        stage('Terraform apply') {
-            steps {
-
-                sh 'terraform apply --auto-approve /var/lib/jenkins/workspace/jenkins_terraform'
-            }
-                    
-            }
+stage('Terraform Apply') {
+  steps {
+    sh 'terraform apply -auto-approve -chdir=/var/lib/jenkins/workspace/jenkins_terraform'
+  }
+}
     }
 }
