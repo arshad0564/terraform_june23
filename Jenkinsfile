@@ -4,7 +4,7 @@ pipeline {
     stages {
 stage('Terraform Init') {
   steps {
-    dir('/var/lib/jenkins/workspace/jenkins_terraform/tf_resource') {
+    dir('tf_resource') {
       sh 'terraform init'
     }
   }
@@ -12,7 +12,7 @@ stage('Terraform Init') {
 
 stage('Terraform Apply') {
   steps {
-    dir('/var/lib/jenkins/workspace/jenkins_terraform/tf_resource') {
+    dir('tf_resource') {
       sh 'terraform apply --auto-approve'
     }
   }
