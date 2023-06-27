@@ -22,10 +22,11 @@ pipeline {
             }
         }
         
-        stage('Terraform Apply') {
+        stage('action') {
             steps {
+                    echo "terraform action -->${action}"
                 dir('tf_resource') {
-                    sh 'terraform apply --auto-approve'
+                    sh 'terraform ${action} --auto-approve'
                 }
             }
         }
